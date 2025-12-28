@@ -391,6 +391,55 @@ footer {
 }
 
 /* ============================================
+   BOTÃO VOLTAR AO TOPO
+============================================ */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px; /* 20% menor que 56px */
+    height: 45px; /* 20% menor que 56px */
+    border-radius: 50%;
+    background-color: #ff8c00; /* Laranja */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Mostra o botão quando a classe 'visible' é adicionada */
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Efeito hover - muda para vermelho */
+.back-to-top:hover {
+    background-color: #ff0000; /* Vermelho */
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);
+}
+
+/* Efeito ativo (quando clicado) */
+.back-to-top:active {
+    transform: translateY(-2px) scale(0.95);
+}
+
+/* Estilo do SVG (seta branca) */
+.back-to-top svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ============================================
    ANIMAÇÕES
 ============================================ */
 @keyframes fadeInUp {
@@ -436,6 +485,18 @@ footer {
 
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px; /* 20% menor que 50px */
+        height: 40px; /* 20% menor que 50px */
+    }
+
+    .back-to-top svg {
+        width: 20px;
+        height: 20px;
     }
 }
 

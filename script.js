@@ -88,3 +88,33 @@ const observer = new IntersectionObserver((entries) => {
 projectCards.forEach(card => {
     observer.observe(card);
 });
+
+// ============================================
+// BOTÃO VOLTAR AO TOPO
+// ============================================
+const backToTopButton = document.getElementById('backToTop');
+
+// Função para verificar a posição do scroll e mostrar/ocultar o botão
+function toggleBackToTopButton() {
+    // Calcula 50% da altura total da página
+    const scrollThreshold = (document.documentElement.scrollHeight - window.innerHeight) * 0.5;
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Mostra o botão se o usuário rolou mais de 50% da página
+    if (scrollPosition > scrollThreshold) {
+        backToTopButton.classList.add('visible');
+    } else {
+        backToTopButton.classList.remove('visible');
+    }
+}
+
+// Adiciona o listener de scroll
+window.addEventListener('scroll', toggleBackToTopButton);
+
+// Função para rolar suavemente até o topo
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
