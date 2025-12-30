@@ -259,6 +259,13 @@ html {
     transition: var(--transition);
 }
 
+.project-card .project-image {
+    /* Fix for jagged edges during transform/scale */
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
 .project-card:hover .project-image {
     transform: scale(1.05);
 }
